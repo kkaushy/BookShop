@@ -15,11 +15,8 @@ class ListBookView(ListView):
     template_name= 'index.html'
 	
 def ListCartView(request):
-	cart = request.session.get('cart',{})
-	
+	cart = request.session.get('cart',{})	
 	booklist = Book.objects.filter(id__in = cart.keys())
-
-
 	return render_to_response('Book/cart.html',{'cart_list':cart,'book_list':booklist})
 
 def add_to_cart(request):
@@ -30,3 +27,5 @@ def add_to_cart(request):
 	return HttpResponse("ajax call recieved kaushal   dddd")
 	
 	
+def loginView(request):
+	return render_to_response('Book/login.html')
