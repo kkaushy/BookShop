@@ -32,11 +32,10 @@ $(document).ready(function(){
 		var id = $(this).attr('data');
 		var url = 'add_to_cart';
 		
-		token = $('meta[name="csrf-token"]').attr('content');
+		
 		$.ajax({
 		  type: "POST",
-		  url: url,
-		  headers: { "X-CSRF-Token": token },
+		  url: url,		
 		  data: {
 				'id':id,
 				csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val(),
